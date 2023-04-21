@@ -14,8 +14,20 @@ st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state
 #Sessions as part of interactivity
 #streamlit layouts and containers, look it up
 
-with st.container():
-  st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
+
+tab1, tab2, tab3 = st.tabs(["About", "Urban", "Rural"])
+
+with tab1:
+  with st.container():
+    st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
+
+with tab2:
+  with st.container():
+    st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
+
+with tab3:
+  with st.container():
+    st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
 
 
 col1, col2, col3 = st.columns(3)
