@@ -4,7 +4,7 @@ import streamlit as st
 
 data = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
-st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed')
+st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed', layout = 'wide')
 
 #Can we scroll? Controls
 #Input boxes/Buttons
@@ -33,6 +33,7 @@ with tab2:
         #st.write("Words")
     with col2:
       st.write= 'visualization')
+  
   with st.container():
     st.write('visualization')
 
