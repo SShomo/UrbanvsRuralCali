@@ -23,6 +23,8 @@ with tab1:
   with st.container():
     st.markdown(""" <style> .big-font { font-size:64px !important } </style> """, unsafe_allow_html=True)
     st.markdown('<p class="big-font">  Research Question !!</p>', unsafe_allow_html=True)
+  with st.container():
+    st.write("This is a test")
 
 with tab2:
   with st.container():
