@@ -22,17 +22,19 @@ with tab1:
     st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
   with st.container():
     st.markdown(""" <style> .big-font { font-size:64px !important } </style> """, unsafe_allow_html=True)
-    st.markdown('<p class="big-font">.  Research Question !!</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">  Research Question !!</p>', unsafe_allow_html=True)
 with tab2:
   with st.container():
     st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
     col1, col2 = st.columns(2)
     with col1:
-      st.write('visualization')
+      pass
+      #st.write('visualization')
       #with st.containter():
         #st.write("Words")
     with col2:
-      st.write= ('visualization')
+      pass
+      #st.write= ('visualization')
   
   with st.container():
     pass
