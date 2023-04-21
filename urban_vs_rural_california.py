@@ -35,7 +35,8 @@ with tab2:
       st.write= ('visualization')
   
   with st.container():
-    st.write('visualization')
+    pass
+    #st.write('visualization')
 
 with tab3:
   with st.container():
