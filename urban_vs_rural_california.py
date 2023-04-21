@@ -32,7 +32,7 @@ with tab2:
       #with st.containter():
         #st.write("Words")
     with col2:
-      st.write= 'visualization')
+      st.write= ('visualization')
   
   with st.container():
     st.write('visualization')
