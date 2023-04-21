@@ -28,7 +28,7 @@ with tab2:
     st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
     col1, col2 = st.columns(2)
     with col1:
-      st.write('visualization')
+      st.write('visualization', unsafe_allow_html=False)
       #with st.containter():
         #st.write("Words")
     with col2:
