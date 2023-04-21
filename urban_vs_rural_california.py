@@ -33,18 +33,21 @@ with tab2:
     with col2:
       st.header('Visualization')
   
-  with st.container():
-    pass
+    with st.container():
+      st.header("Visualization")
     #st.write('visualization')
 
 with tab3:
-  with st.container():
+    with st.container():
     st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
+    col1, col2 = st.columns(2)
+    with col1:
+      st.header('Visualization')
+    with col2:
+      st.header('Visualization')
+  
+    with st.container():
+      st.header("Visualization")
 
-
-col1, col2, col3 = st.columns(3)
-
-#Make a sidebar
 with st.sidebar:
   st.header("This is a sidebar")
-#Make three charts
