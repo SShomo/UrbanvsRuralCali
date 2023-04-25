@@ -14,6 +14,7 @@ st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state
 #Sessions as part of interactivity
 #streamlit layouts and containers, look it up
 
+#Selectboxes for multiple controls
 
 tab1, tab2, tab3 = st.tabs(["About", "Urban", "Rural"])
 
@@ -32,6 +33,7 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
       st.header('Visualization')
+      st.write("This is a test")
     with col2:
       st.header('Visualization')
   
