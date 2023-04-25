@@ -35,11 +35,13 @@ with tab2:
       st.header('Visualization')
       st.write("This is a test")
     with col2:
-      st.header('Visualization')
+      st.header('Visualization'
+      st.write("This is a test")
+
   
     with st.container():
       st.header("Visualization")
-    #st.write('visualization')
+      st.write("This is a test")
 
 with tab3:
     with st.container():
@@ -47,11 +49,15 @@ with tab3:
       col1, col2 = st.columns(2)
     with col1:
       st.header('Visualization')
+      st.write("This is a test")
     with col2:
       st.header('Visualization')
+      st.write("This is a test")
   
     with st.container():
       st.header("Visualization")
+      st.write("This is a test")
+
 
 with st.sidebar:
   st.header("This is a sidebar")
