@@ -35,7 +35,7 @@ with tab2:
       st.header('Visualization')
       st.write("This is a test")
     with col2:
-      st.header('Visualization'
+      st.header('Visualization')
       st.write("This is a test")
 
   
