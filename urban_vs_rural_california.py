@@ -9,8 +9,9 @@ st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state
 alt.data_transformers.disable_max_rows()
 selection = alt.selection_multi(fields=['sex'], bind='legend')
 all_sex = data.sex.unique().tolist()
+plot_df = data[data.sex.isin(all_sex)]
 
-chart1 = alt.Chart(all_sex).mark_bar().encode(
+chart1 = alt.Chart(plot_df).mark_bar().encode(
     x= alt.X('count(all_sex):Q', title= 'Count'),
     y='all_sex:O',
     color='all_sex:N',
@@ -23,7 +24,6 @@ chart1 = alt.Chart(all_sex).mark_bar().encode(
 selected = st.multiselect(
      "Gender", options = all_sex, default = all_sex)
 
-plot_df = data[data.sex.isin(all_sex)]
 
 chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
      theta="religion",
