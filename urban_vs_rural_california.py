@@ -25,10 +25,10 @@ selected = st.multiselect(
 
 plot_df = data[data.sex.isin(all_sex)]
 
-chart2 = alt.Chart(plot_df).mark_arc(innerRadius=40).encode(
+chart2 = alt.Chart(plot_df).mark_arc(innerRadius=20).encode(
      theta="religion",
      color="religion:N",
-     tooltip = ['religion', 'sex']
+     tooltip = ['religion', 'count(sex)']
  )
 
 
