@@ -5,6 +5,7 @@ import streamlit as st
 data = pd.read_csv("https://raw.githubusercontent.com/SShomo/UrbanvsRuralCali/main/clean_cupid.csv.csv")
 
 alt.data_transformers.disable_max_rows()
+all_sex = data.sex.unique().tolist()
 selection = alt.selection_multi(fields=['sex'], bind='legend')
 
 chart1 = alt.Chart(data).mark_bar().encode(
@@ -17,14 +18,11 @@ chart1 = alt.Chart(data).mark_bar().encode(
 ).add_selection(
     selection
 )
-
-all_sex = data.sex.unique().tolist()
-
 selected = st.multiselect(
     "Programming languages", options=all_sex, default=all_sex)
 
-plot_df = data[data.sex.isin(all_sex)]
-
+#plot_df = data[data.sex.isin(all_sex)]
+plot_df
 chart2 = alt.Chart(plot_df).mark_arc(innerRadius=40).encode(
     theta="religion",
     color="religion:N",
