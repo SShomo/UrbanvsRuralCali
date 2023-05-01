@@ -22,11 +22,11 @@ selected = st.multiselect(
     "Programming languages", options=all_sex, default=all_sex)
 
 #plot_df = data[data.sex.isin(all_sex)]
-plot_df
-chart2 = alt.Chart(plot_df).mark_arc(innerRadius=40).encode(
-    theta="religion",
-    color="religion:N",
-)
+
+# chart2 = alt.Chart(plot_df).mark_arc(innerRadius=40).encode(
+#     theta="religion",
+#     color="religion:N",
+# )
 
 st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed', layout = 'wide')
 
