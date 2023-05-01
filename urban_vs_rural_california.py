@@ -28,7 +28,8 @@ selected = st.multiselect(
 chart2 = alt.Chart(data).mark_bar().encode(
     x = 'location',
     y='count(sex)',
-    tooltip = ['religion', 'location']
+    color = 'sex'
+    tooltip = ['sex']
 )
 
 # chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
