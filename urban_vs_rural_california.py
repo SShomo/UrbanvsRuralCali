@@ -21,7 +21,7 @@ chart1 = alt.Chart(data).mark_bar().encode(
 # selected = st.multiselect(
 #     "Programming languages", options=all_sex, default=all_sex)
 
-#plot_df = data[data.sex.isin(all_sex)]
+plot_df = data[data.sex.isin(all_sex)]
 
 # chart2 = alt.Chart(plot_df).mark_arc(innerRadius=40).encode(
 #     theta="religion",
