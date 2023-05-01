@@ -14,7 +14,7 @@ all_sex = data.sex.unique().tolist()
 
 plot_df = data[data.sex.isin(all_sex)]
 
-chart1 = alt.Chart(data).mark_bar(size=60).encode(
+chart1 = alt.Chart(data).mark_bar().encode(
     x= alt.X('count(sex):Q', title= 'Count'),
     y='sex:O',
     color='sex:N',
