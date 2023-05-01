@@ -79,14 +79,10 @@ with tab2:
       st.header('Status of Availability')
       st.altair_chart(chart1, use_container_width = True)
     with col2:
-      st.header('Visualization')
+      st.header('Religions and Gender in Cities')
       st.altair_chart(chart4, use_container_width = True)
-      #st.write("This is a test")
-
-  
     with st.container():
-      st.header("Visualization")
-      st.write("This is a test")
+      st.write("These are some general observations about the genders and their differences in the dataset. It should be kept in mind that there are about 1000 more male entries in the dataset than female.")
 
 with tab3:
     with st.container():
