@@ -30,14 +30,7 @@ chart2 = alt.Chart(data).mark_bar().encode(
     y='count(sex)',
     color = 'sex',
     tooltip = ['sex']
-)
-
-# chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
-#      theta="religion",
-#      color="sex:N",
-#      tooltip = ['religion', 'location']
-#  )
-
+).interactive()
 
 #Can we scroll? Controls
 #Input boxes/Buttons
