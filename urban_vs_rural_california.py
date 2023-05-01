@@ -25,10 +25,10 @@ selected = st.multiselect(
 
 plot_df = data[data.sex.isin(all_sex)]
 
-# chart2 = alt.Chart(plot_df).mark_arc(innerRadius=40).encode(
-#     theta="religion",
-#     color="religion:N",
-# )
+chart2 = alt.Chart(plot_df).mark_arc(innerRadius=40).encode(
+     theta="religion",
+     color="religion:N",
+ )
 
 
 #Can we scroll? Controls
@@ -75,7 +75,8 @@ with tab3:
       col1, col2 = st.columns(2)
     with col1:
       st.header('Visualization')
-      st.write("This is a test")
+      st.altair_chart(chart2, use_container_width = True)
+      #st.write("This is a test")
     with col2:
       st.header('Visualization')
       st.write("This is a test")
