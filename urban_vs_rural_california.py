@@ -2,7 +2,21 @@ import pandas as pd
 import altair as alt
 import streamlit as st
 
-data = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
+data = pd.read_csv("https://raw.githubusercontent.com/SShomo/UrbanvsRuralCali/main/clean_cupid.csv.csv")
+
+alt.data_transformers.disable_max_rows()
+selection = alt.selection_multi(fields=['sex'], bind='legend')
+
+chart1 = alt.Chart(data).mark_bar().encode(
+    x= alt.X('count(sex):Q', title= 'Count'),
+    y='sex:O',
+    color='sex:N',
+    row='status:N',
+    tooltip = ['count(sex)'],
+    opacity=alt.condition(selection, alt.value(1), alt.value(0.2))
+).add_selection(
+    selection
+)
 
 st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed', layout = 'wide')
 
@@ -33,6 +47,7 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
       st.header('Visualization')
+      st.altair_chart(chart1, use_container_width = True)
       st.write("This is a test")
     with col2:
       st.header('Visualization')
