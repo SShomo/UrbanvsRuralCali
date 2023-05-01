@@ -28,7 +28,7 @@ plot_df = data[data.sex.isin(all_sex)]
 chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
      theta="religion",
      color="religion:N",
-     tooltip = ['religion', 'sex:N']
+     tooltip = ['religion', 'm:N']
  )
 
 
