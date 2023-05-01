@@ -29,13 +29,25 @@ selected = st.multiselect(
 
 
 chart2 = alt.Chart(data).mark_bar().encode(
-    x = 'location',
+    x = 'city_type',
     y='count(sex)',
      color=alt.condition(interval, 'sex', alt.value('lightgray')),
-    tooltip = ['location']
+    tooltip = ['city_type']
 ).add_selection(
     interval
 )
+
+chart3 = alt.Chart(data).mark_bar().encode(
+    x='count()',
+    y='religion',
+    color='religion',
+    tooltip=['religion', 'sex']
+).transform_filter(
+    interval
+)
+
+chart4 = chart2 & chart3
+
 
 #Can we scroll? Controls
 #Input boxes/Buttons
@@ -68,7 +80,7 @@ with tab2:
       st.altair_chart(chart1, use_container_width = True)
     with col2:
       st.header('Visualization')
-      st.altair_chart(chart2, use_container_width = True)
+      st.altair_chart(chart4, use_container_width = True)
       #st.write("This is a test")
 
   
