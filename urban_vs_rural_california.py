@@ -28,7 +28,7 @@ selected = st.multiselect(
 chart2 = alt.Chart(data).mark_bar().encode(
     x = 'location',
     y='count(sex)',
-    color = 'sex'
+    color = 'sex',
     tooltip = ['sex']
 )
 
