@@ -18,8 +18,8 @@ chart1 = alt.Chart(data).mark_bar().encode(
 ).add_selection(
     selection
 )
-selected = st.multiselect(
-    "Programming languages", options=all_sex, default=all_sex)
+# selected = st.multiselect(
+#     "Programming languages", options=all_sex, default=all_sex)
 
 #plot_df = data[data.sex.isin(all_sex)]
 
