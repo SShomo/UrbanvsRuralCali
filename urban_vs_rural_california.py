@@ -12,11 +12,11 @@ all_sex = data.sex.unique().tolist()
 plot_df = data[data.sex.isin(all_sex)]
 
 chart1 = alt.Chart(plot_df).mark_bar().encode(
-    x= alt.X('count(all_sex):Q', title= 'Count'),
-    y='all_sex:O',
-    color='all_sex:N',
+    x= alt.X('count(sex):Q', title= 'Count'),
+    y='sex:O',
+    color='sex:N',
     row='status:N',
-    tooltip = ['count(all_sex)'],
+    tooltip = ['count(sex)'],
     opacity=alt.condition(selection, alt.value(1), alt.value(0.2))
 ).add_selection(
     selection
