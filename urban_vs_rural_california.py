@@ -35,7 +35,7 @@ chart2 = alt.Chart(data).mark_bar().encode(
     tooltip = ['city_type', 'sex']
 ).add_selection(
     interval
-)
+).interactive()
 
 chart3 = alt.Chart(data).mark_bar().encode(
     x='count()',
