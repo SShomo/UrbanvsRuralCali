@@ -7,8 +7,11 @@ data = pd.read_csv("https://raw.githubusercontent.com/SShomo/UrbanvsRuralCali/ma
 st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed', layout = 'wide')
 
 alt.data_transformers.disable_max_rows()
+
 selection = alt.selection_multi(fields=['sex'], bind='legend')
+interval = alt.selection_interval()
 all_sex = data.sex.unique().tolist()
+
 plot_df = data[data.sex.isin(all_sex)]
 
 chart1 = alt.Chart(data).mark_bar().encode(
@@ -28,9 +31,11 @@ selected = st.multiselect(
 chart2 = alt.Chart(data).mark_bar().encode(
     x = 'location',
     y='count(sex)',
-    color = 'sex',
-    tooltip = ['sex']
-).interactive()
+     color=alt.condition(interval, 'sex', alt.value('lightgray')),
+    tooltip = ['location']
+).add_selection(
+    interval
+)
 
 #Can we scroll? Controls
 #Input boxes/Buttons
