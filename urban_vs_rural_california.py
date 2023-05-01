@@ -4,6 +4,8 @@ import streamlit as st
 
 data = pd.read_csv("https://raw.githubusercontent.com/SShomo/UrbanvsRuralCali/main/clean_cupid.csv.csv")
 
+st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed', layout = 'wide')
+
 alt.data_transformers.disable_max_rows()
 selection = alt.selection_multi(fields=['sex'], bind='legend')
 all_sex = data.sex.unique().tolist()
@@ -28,7 +30,6 @@ plot_df = data[data.sex.isin(all_sex)]
 #     color="religion:N",
 # )
 
-st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed', layout = 'wide')
 
 #Can we scroll? Controls
 #Input boxes/Buttons
