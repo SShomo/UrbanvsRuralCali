@@ -82,7 +82,7 @@ with tab2:
     with col2:
       st.header('Religions and Gender in Cities')
       st.altair_chart(chart4, use_container_width = True)
-    with st.container():
+    #with st.container():
 
 with tab3:
     with st.container():
