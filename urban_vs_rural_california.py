@@ -25,9 +25,6 @@ selected = st.multiselect(
 
 plot_df = data[data.sex.isin(all_sex)]
 
-e = transform_aggregate('religion')
-
-
 chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
      theta="religion",
      color="sex:N",
