@@ -5,8 +5,8 @@ import streamlit as st
 data = pd.read_csv("https://raw.githubusercontent.com/SShomo/UrbanvsRuralCali/main/clean_cupid.csv.csv")
 
 alt.data_transformers.disable_max_rows()
-all_sex = data.sex.unique().tolist()
 selection = alt.selection_multi(fields=['sex'], bind='legend')
+#all_sex = data.sex.unique().tolist()
 
 chart1 = alt.Chart(data).mark_bar().encode(
     x= alt.X('count(sex):Q', title= 'Count'),
