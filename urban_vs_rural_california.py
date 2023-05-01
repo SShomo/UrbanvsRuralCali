@@ -11,7 +11,7 @@ selection = alt.selection_multi(fields=['sex'], bind='legend')
 all_sex = data.sex.unique().tolist()
 plot_df = data[data.sex.isin(all_sex)]
 
-chart1 = alt.Chart(plot_df).mark_bar().encode(
+chart1 = alt.Chart(data).mark_bar().encode(
     x= alt.X('count(sex):Q', title= 'Count'),
     y='sex:O',
     color='sex:N',
@@ -25,11 +25,17 @@ selected = st.multiselect(
      "Gender", options = all_sex, default = all_sex)
 
 
-chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
-     theta="religion",
-     color="sex:N",
-     tooltip = ['religion']
- )
+chart2 = alt.Chart(data).mark_bar().encode(
+    alt.X("religion:Q", bin=True),
+    y='count()',
+    tooltip = ['religion', 'location']
+)
+
+# chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
+#      theta="religion",
+#      color="sex:N",
+#      tooltip = ['religion', 'location']
+#  )
 
 
 #Can we scroll? Controls
@@ -63,7 +69,8 @@ with tab2:
       st.altair_chart(chart1, use_container_width = True)
     with col2:
       st.header('Visualization')
-      st.write("This is a test")
+      st.altair_chart(chart2, use_container_width = True)
+      #st.write("This is a test")
 
   
     with st.container():
@@ -76,7 +83,6 @@ with tab3:
       col1, col2 = st.columns(2)
     with col1:
       st.header('Visualization')
-      st.altair_chart(chart2, use_container_width = True)
       #st.write("This is a test")
     with col2:
       st.header('Visualization')
