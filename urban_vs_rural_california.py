@@ -28,11 +28,11 @@ selected = st.multiselect(
      "Gender", options = all_sex, default = all_sex)
 
 
-chart2 = alt.Chart(data).mark_bar().encode(
+chart2 = alt.Chart(data).mark_circle().encode(
     x = 'city_type',
-    y='count(sex)',
+    y='count()',
      color=alt.condition(interval, 'sex', alt.value('lightgray')),
-    tooltip = ['city_type']
+    tooltip = ['city_type', 'sex']
 ).add_selection(
     interval
 )
