@@ -19,7 +19,7 @@ chart1 = alt.Chart(data).mark_bar().encode(
     selection
 )
 selected = st.multiselect(
-     "Gender", options=data, default=data)
+     "Gender", all_sex)
 
 plot_df = data[data.sex.isin(all_sex)]
 
