@@ -79,6 +79,7 @@ with tab2:
       st.header('Status of Availability')
       st.altair_chart(chart1, use_container_width = True)
       st.write("These are some general observations about the genders and their differences in the dataset. It should be kept in mind that there are about 1000 more male entries in the dataset than female. This gives us a better idea of what we are working with in terms of the research question.")
+      st.image("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F1958754-cute-heart-one-line-drawing-continuous-hand-drawn-wave-of-love&psig=AOvVaw3Q4j4hvjO0Q_NbnK8utGNv&ust=1683071221846000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLjgto6n1f4CFQAAAAAdAAAAABAI")
     with col2:
       st.header('Religions and Gender in Cities')
       st.altair_chart(chart4, use_container_width = True)
