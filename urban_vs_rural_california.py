@@ -10,12 +10,12 @@ alt.data_transformers.disable_max_rows()
 selection = alt.selection_multi(fields=['sex'], bind='legend')
 all_sex = data.sex.unique().tolist()
 
-chart1 = alt.Chart(data).mark_bar().encode(
-    x= alt.X('count(sex):Q', title= 'Count'),
-    y='sex:O',
-    color='sex:N',
+chart1 = alt.Chart(all_sex).mark_bar().encode(
+    x= alt.X('count(all_sex):Q', title= 'Count'),
+    y='all_sex:O',
+    color='all_sex:N',
     row='status:N',
-    tooltip = ['count(sex)'],
+    tooltip = ['count(all_sex)'],
     opacity=alt.condition(selection, alt.value(1), alt.value(0.2))
 ).add_selection(
     selection
@@ -24,6 +24,9 @@ selected = st.multiselect(
      "Gender", options = all_sex, default = all_sex)
 
 plot_df = data[data.sex.isin(all_sex)]
+
+e = transform_aggregate('religion')
+
 
 chart2 = alt.Chart(plot_df).mark_arc(innerRadius=80).encode(
      theta="religion",
