@@ -1,4 +1,3 @@
-!pip3 install wordfreq
 import pandas as pd
 import altair as alt
 import streamlit as st
