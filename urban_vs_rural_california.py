@@ -1,6 +1,10 @@
+!pip3 install wordfreq
 import pandas as pd
 import altair as alt
 import streamlit as st
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+from wordfreq import top_n_list
 
 data = pd.read_csv("https://raw.githubusercontent.com/SShomo/UrbanvsRuralCali/main/clean_cupid.csv.csv")
 
