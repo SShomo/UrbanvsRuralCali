@@ -84,13 +84,34 @@ with tab2:
     #with st.container():
 
 with tab3:
-    selected = st.multiselect(
-    "Gender", options = all_sex, default = all_sex)
     with st.container():
       st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
       col1, col2 = st.columns(2)
+      selected = st.multiselect("Gender", options = all_sex, default = all_sex)
     with col1:
       st.header('Visualization')
+      text = data['fullessay'].str.split(" ")
+      all_words = {}
+      for x in text:
+        if isinstance(x, list):
+          for word in x:
+            if isinstance(word, str):
+              if all_words.get(word):
+                all_words[word] += x.count(word)
+              else:
+                all_words[word] = x.count(word)
+
+      all_words.pop('i') ; all_words.pop('and') ; all_words.pop('the') ; all_words.pop('a') ; all_words.pop('to') ;  all_words.pop('my') ;  all_words.pop('of') ;  all_words.pop('i\'m') ;  all_words.pop('you') ;  all_words.pop('that')
+      all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
+      all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
+      all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+
+      word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
+
+      plt.imshow(word_cloud, interpolation='bilinear')
+      plt.axis("off")
+      plt.show()
+      st.pyplot(word_cloud)
       #st.write("This is a test")
     with col2:
       st.header('Visualization')
