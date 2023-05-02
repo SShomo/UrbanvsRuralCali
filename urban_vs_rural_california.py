@@ -17,6 +17,7 @@ interval = alt.selection_interval()
 all_sex = data.sex.unique().tolist()
 
 plot_df = data[data.sex.isin(all_sex)]
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 chart1 = alt.Chart(data).mark_bar().encode(
     x= alt.X('count(sex):Q', title= 'Count'),
@@ -112,6 +113,7 @@ with tab3:
         all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
         all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
         all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+        all_words.pop('love'); all_words.pop('like')
         word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
         plt.imshow(word_cloud, interpolation='bilinear')
         plt.axis("off")
@@ -134,6 +136,7 @@ with tab3:
         all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
         all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
         all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+        all_words.pop('love'); all_words.pop('like')
         word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
         plt.imshow(word_cloud, interpolation='bilinear')
         plt.axis("off")
@@ -156,6 +159,7 @@ with tab3:
         all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
         all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
         all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+        all_words.pop('love'); all_words.pop('like')
         word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
         plt.imshow(word_cloud, interpolation='bilinear')
         plt.axis("off")
