@@ -112,10 +112,10 @@ with tab3:
 
       word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
 
-      e = plt.imshow(word_cloud, interpolation='bilinear')
+      plt.imshow(word_cloud, interpolation='bilinear')
       plt.axis("off")
       plt.show()
-      st.pyplot(e)
+      st.pyplot()
       #st.write("This is a test")
     with col2:
       st.header('Visualization')
