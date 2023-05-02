@@ -91,10 +91,9 @@ with tab2:
 with tab3:
     with st.container():
       st.image('https://cdn.cookielaw.org/logos/abdd0205-22cc-4fe3-9905-15c572527293/7556293c-5b79-4ada-b220-2a9a79bf5b49/be7ee31a-0ca2-4aeb-894e-ee0219934cbe/okcupid_whitebg.png')
-      col1, col2 = st.columns(2)
       selected = st.multiselect("Gender", options = all_sex, default = all_sex)
-    with col1:
-      st.header('Visualization')
+
+      st.header('Essay Word Cloud')
       text = data['fullessay'].str.split(" ")
       if 'f' in selected and 'm' not in selected:
         all_words = {}
@@ -165,11 +164,6 @@ with tab3:
         plt.axis("off")
         plt.show()
         st.pyplot()
-      #st.write("This is a test")
-    with col2:
-      st.header('Visualization')
-      st.write("This is a test")
   
     with st.container():
-      st.header("Visualization")
-      st.write("This is a test")
+      st.write("In order to get a result that would give any insight behind the word usage in the essays I had to remove commonly used words like I and the. However, the words like and love were used very often as well by both genders equally, so I choose to remove them as well as to not skew the data. In terms of what each gender values, men seem to care greatly about music, while women seem to put a greater enphasis on friends. Both genders however use the words; people, all, life, about, and good in an equal amount. Although life is used in both clouds, it is obviously much bigger on the female word cloud. Looking at these word clouds it shows that females seems to care about friends and their relationships to them more than men, who put more of an emphasis on music")
