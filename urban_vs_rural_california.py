@@ -2,6 +2,7 @@ import pandas as pd
 import altair as alt
 import streamlit as st
 import matplotlib.pyplot as plt
+import numpy as np
 from wordcloud import WordCloud
 from wordfreq import top_n_list
 
