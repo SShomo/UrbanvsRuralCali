@@ -8,7 +8,7 @@ from wordfreq import top_n_list
 
 data = pd.read_csv("https://raw.githubusercontent.com/SShomo/UrbanvsRuralCali/main/clean_cupid.csv.csv")
 
-st.set_page_config(page_title="Urban vs Rural California", initial_sidebar_state = 'collapsed', layout = 'wide')
+st.set_page_config(page_title="Genders in California", initial_sidebar_state = 'collapsed', layout = 'wide')
 
 alt.data_transformers.disable_max_rows()
 
@@ -95,27 +95,72 @@ with tab3:
     with col1:
       st.header('Visualization')
       text = data['fullessay'].str.split(" ")
-      all_words = {}
-      for x in text:
-        if isinstance(x, list):
-          for word in x:
-            if isinstance(word, str):
-              if all_words.get(word):
-                all_words[word] += x.count(word)
-              else:
-                all_words[word] = x.count(word)
+      if 'f' in selected and 'm' not in selected:
+        all_words = {}
+        i=0
+        for x in text:
+          if isinstance(x, list) and data['sex'][i] == 'f':
+            for word in x:
+              if isinstance(word, str):
+                if all_words.get(word):
+                  all_words[word] += x.count(word)
+                else:
+                  all_words[word] = x.count(word)
+          i+=1
 
-      all_words.pop('i') ; all_words.pop('and') ; all_words.pop('the') ; all_words.pop('a') ; all_words.pop('to') ;  all_words.pop('my') ;  all_words.pop('of') ;  all_words.pop('i\'m') ;  all_words.pop('you') ;  all_words.pop('that')
-      all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
-      all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
-      all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+        all_words.pop('i') ; all_words.pop('and') ; all_words.pop('the') ; all_words.pop('a') ; all_words.pop('to') ;  all_words.pop('my') ;  all_words.pop('of') ;  all_words.pop('i\'m') ;  all_words.pop('you') ;  all_words.pop('that')
+        all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
+        all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
+        all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+        word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
+        plt.imshow(word_cloud, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+        st.pyplot()
+      elif 'm' in selected and 'f' not in selected:
+        all_words = {}
+        i=0
+        for x in text:
+          if isinstance(x, list) and data['sex'][i] == 'm':
+            for word in x:
+              if isinstance(word, str):
+                if all_words.get(word):
+                  all_words[word] += x.count(word)
+                else:
+                  all_words[word] = x.count(word)
+        i+=1
 
-      word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
+        all_words.pop('i') ; all_words.pop('and') ; all_words.pop('the') ; all_words.pop('a') ; all_words.pop('to') ;  all_words.pop('my') ;  all_words.pop('of') ;  all_words.pop('i\'m') ;  all_words.pop('you') ;  all_words.pop('that')
+        all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
+        all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
+        all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+        word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
+        plt.imshow(word_cloud, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+        st.pyplot()
+      if 'f' in selected and 'm' in selected:
+        all_words = {}
+        i=0
+        for x in text:
+          if isinstance(x, list):
+            for word in x:
+              if isinstance(word, str):
+                if all_words.get(word):
+                  all_words[word] += x.count(word)
+                else:
+                  all_words[word] = x.count(word)
+        i+=1
 
-      plt.imshow(word_cloud, interpolation='bilinear')
-      plt.axis("off")
-      plt.show()
-      st.pyplot()
+        all_words.pop('i') ; all_words.pop('and') ; all_words.pop('the') ; all_words.pop('a') ; all_words.pop('to') ;  all_words.pop('my') ;  all_words.pop('of') ;  all_words.pop('i\'m') ;  all_words.pop('you') ;  all_words.pop('that')
+        all_words.pop('in') ; all_words.pop('for') ; all_words.pop('am') ; all_words.pop('with') ; all_words.pop('at') ; all_words.pop('it') ; all_words.pop('is') ; all_words.pop('but'); all_words.pop('have')
+        all_words.pop('me') ; all_words.pop('or'); all_words.pop('on') ; all_words.pop('are') ; all_words.pop('i\'ve') ; all_words.pop('this') ; all_words.pop('so') ; all_words.pop('&') ; all_words.pop('if') 
+        all_words.pop('be') ; all_words.pop('just') ; all_words.pop('do') ; all_words.pop('can') ; all_words.pop('not') ; all_words.pop('as') ; all_words.pop('was') ; all_words.pop('out')
+        word_cloud = WordCloud(width=2000,height=2000, max_words=800,relative_scaling=0, background_color='white').generate_from_frequencies(all_words)
+        plt.imshow(word_cloud, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+        st.pyplot()
       #st.write("This is a test")
     with col2:
       st.header('Visualization')
